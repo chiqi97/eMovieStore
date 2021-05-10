@@ -5,45 +5,45 @@ using System.Threading.Tasks;
 
 namespace eMovieStore.Models
 {
-    public class SQLBookRepository : IBookRepository
+    public class SQLMovieRepository : IMovieRepository
     {
         private readonly AppDbContext context;
 
-        public SQLBookRepository(AppDbContext context)
+        public SQLMovieRepository(AppDbContext context)
         {
             this.context = context;
         }
-        public Book Add(Book book)
+        public Movie Add(Movie book)
         {
-            context.Books.Add(book);
+            context.Movies.Add(book);
             context.SaveChanges();
             return book;
         }
 
-        public Book Delete(int id)
+        public Movie Delete(int id)
         {
-            Book book =context.Books.Find(id);
+            Movie book =context.Movies.Find(id);
             if (book != null)
             {
-                context.Books.Remove(book);
+                context.Movies.Remove(book);
                 context.SaveChanges();
             }
             return book;
         }
 
-        public IEnumerable<Book> GetAllBook()
+        public IEnumerable<Movie> GetAllMovies()
         {
-            return context.Books;
+            return context.Movies;
         }
 
-        public Book GetBook(int id)
+        public Movie GetMovie(int id)
         {
-            return context.Books.Find(id);
+            return context.Movies.Find(id);
         }
 
-        public Book Update(Book bookChanges)
+        public Movie Update(Movie bookChanges)
         {
-            var book = context.Books.Attach(bookChanges);
+            var book = context.Movies.Attach(bookChanges);
             book.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return bookChanges;

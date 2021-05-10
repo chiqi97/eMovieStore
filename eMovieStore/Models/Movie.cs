@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eMovieStore.Models
 {
-    public class Book
+    public class Movie
     {
         public int Id { get; set; }
         [Required]
@@ -18,6 +18,9 @@ namespace eMovieStore.Models
         [Required]
         [MaxLength(30)]
         public string Author { get; set; }
+        [Required]
+        [MaxLength(4)]
+        public int YearOfProduction { get; set; }
         public string PhotoPath { get; set; }
 
     }

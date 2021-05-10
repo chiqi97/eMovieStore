@@ -18,7 +18,7 @@ namespace eMovieStore.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("eMovieStore.Models.Book", b =>
+            modelBuilder.Entity("eMovieStore.Models.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,9 +43,31 @@ namespace eMovieStore.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
+                    b.Property<int>("YearOfProduction")
+                        .HasMaxLength(4)
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Books");
+                    b.ToTable("Movies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Martin Scorsese",
+                            Genre = "Thriller",
+                            Title = "Wyspa tajemnic",
+                            YearOfProduction = 2010
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Frank Darabont",
+                            Genre = "Dramat",
+                            Title = "Skazani na Shawshank",
+                            YearOfProduction = 1994
+                        });
                 });
 #pragma warning restore 612, 618
         }

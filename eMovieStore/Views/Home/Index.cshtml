@@ -1,8 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Movie>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@{ ViewData["Title"] = "Wszystkie filmy - eMovieStore"; }
+
+<h1 class="display-4 pb-5" align="center">Wszystkie filmy</h1>
+
+<div class="row">
+    @foreach (var item in @Model)
+    {
+    <div class="col-4">
+        <div class="ajaxbg d-none">
+            <p   class="lead alert alert-success text-center">
+                Film został dodany
+            </p>
+        </div>
+
+
+        <h5>@item.Title</h5>
+
+        <div>
+            @Html.Raw(item.Author)
+        </div>
+
+        <p align="center">
+            <a  data-id="@item.Id"  class="btn btn-primary addToCart">Dodaj do koszyka</a>
+        </p>
+        <hr />
+    </div>}
+
 </div>
+

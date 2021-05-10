@@ -30,7 +30,7 @@ namespace eMovieStore
  options => options.UseSqlServer(_config.GetConnectionString("EMovieStoreDBConnection")));
 
             services.AddMvc().AddXmlSerializerFormatters();
-            services.AddScoped<IBookRepository, SQLBookRepository>();
+            services.AddScoped<IMovieRepository, SQLMovieRepository>();
             services.AddControllersWithViews();
         }
 
