@@ -27,7 +27,7 @@ namespace eMovieStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbContext>(
- options => options.UseSqlServer(_config.GetConnectionString("eMovieStoreDBConnection")));
+ options => options.UseSqlServer(_config.GetConnectionString("EMovieStoreDBConnection")));
 
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<IBookRepository, SQLBookRepository>();
