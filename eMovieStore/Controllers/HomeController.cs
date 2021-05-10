@@ -11,16 +11,17 @@ namespace eMovieStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IBookRepository _bookRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBookRepository bookRepository)
         {
-            _logger = logger;
+            _bookRepository = bookRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+          var books =  _bookRepository.GetAllBook();
+            return View(books);
         }
 
         public IActionResult Privacy()
