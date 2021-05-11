@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="background-image:url(images/tlo.jpg)">
     <header>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" a asp-action="index" asp-controller="home">
@@ -53,11 +53,11 @@
                     </li>
                     <li class=" nav-item">
 
-                        <a  class="nav-link">Store Offer</a>
+                        <a class="nav-link">Store Offer</a>
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -87,24 +87,31 @@
 
                 </ul>
             </div>
-
+            
 
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - eMovieStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container"   >
+            <div class="content">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - eMovieStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

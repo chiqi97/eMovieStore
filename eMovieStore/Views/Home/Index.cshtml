@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<Movie>
 
-@{ ViewData["Title"] = "Wszystkie filmy - eMovieStore"; }
+@{ ViewData["Title"] = "eMovieStore"; }
+@await Html.PartialAsync("Carousel")
 
 <h1 class="display-4 pb-5" align="center">Wszystkie filmy</h1>
 
-<div class="row">
-    @foreach (var item in @Model)
-    {
+    <div class="row" >
+        @foreach (var item in @Model)
+        {
     <div class="col-4">
         <div class="ajaxbg d-none">
-            <p   class="lead alert alert-success text-center">
+            <p class="lead alert alert-success text-center">
                 Film został dodany
             </p>
         </div>
@@ -22,10 +23,11 @@
         </div>
 
         <p align="center">
-            <a  data-id="@item.Id"  class="btn btn-primary addToCart">Dodaj do koszyka</a>
+            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-primary addToCart">Dodaj do koszyka</a>
         </p>
         <hr />
     </div>}
+
 
 </div>
 
