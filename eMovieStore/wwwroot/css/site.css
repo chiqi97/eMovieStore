@@ -75,8 +75,10 @@ body {
 }
 
 .content {
-    background:#c1bbbb ;
+    background: #c1bbbb;
     padding: 15px;
     border-radius: 3px;
+    background-position: center;
+    background-size: cover;
 }
 

@@ -3,31 +3,38 @@
 @{ ViewData["Title"] = "eMovieStore"; }
 @await Html.PartialAsync("Carousel")
 
+@*<h1 class="display-4 pb-5" align="center">Welcome</h1>*@
+
 <h1 class="display-4 pb-5" align="center">Wszystkie filmy</h1>
 
-    <div class="row" >
-        @foreach (var item in @Model)
-        {
-    <div class="col-4">
-        <div class="ajaxbg d-none">
-            <p class="lead alert alert-success text-center">
-                Film został dodany
-            </p>
+@*<div class="row">*@
+<div class="card-deck">
+    @foreach (var movie in Model)
+    {
+        var photoPath = "~/images/" + (movie.PhotoPath ?? "cover.jpg");
+
+    <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+        <div class="card-header">
+            <h3>@movie.Title</h3>
+            <h5>@movie.Author</h5>
+        </div>
+
+        <img class="card-img-top imageThumbnail" src="@photoPath"
+             asp-append-version="true" />
+
+        <div class="card-footer text-center">
+            <a asp-controller="home" asp-action="details" asp-route-id="@movie.Id"
+               class="btn btn-primary m-1">Add</a>
+            </div>
         </div>
 
 
-        <h5>@item.Title</h5>
+            }
 
-        <div>
-            @Html.Raw(item.Author)
+
         </div>
 
-        <p align="center">
-            <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-primary addToCart">Dodaj do koszyka</a>
-        </p>
-        <hr />
-    </div>}
 
-
-</div>
-
+        @section Scripts{
+            <script src="~/js/CustomScript.js"></script>
+        }
