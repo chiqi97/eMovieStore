@@ -18,7 +18,9 @@ namespace eMovieStore.Models
         Title = "Wyspa tajemnic",
         Author = "Martin Scorsese",
         Genre = "Thriller",
-        YearOfProduction=2010
+        YearOfProduction=2010,
+        PhotoPath="shutter-island.jpg"
+        
     },
     new Movie
     {
@@ -26,7 +28,8 @@ namespace eMovieStore.Models
         Title = "Skazani na Shawshank",
         Author = "Frank Darabont",
         Genre = "Dramat",
-        YearOfProduction=1994
+        YearOfProduction=1994,
+        PhotoPath="skazani.jpg"
         
     }
     );

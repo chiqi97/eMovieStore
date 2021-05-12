@@ -11,23 +11,24 @@ namespace eMovieStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IMovieRepository _bookRepository;
+      
 
-        public HomeController(IMovieRepository bookRepository)
+        public HomeController()
         {
-            _bookRepository = bookRepository;
+            
         }
 
         public IActionResult Index()
         {
-          var movies =  _bookRepository.GetAllMovies();
-            return View(movies);
+         
+            return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AboutMe()
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
