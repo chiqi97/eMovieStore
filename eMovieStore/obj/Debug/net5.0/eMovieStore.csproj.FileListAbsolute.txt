@@ -79,3 +79,4 @@ C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Movies\Index.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Home\AboutMe.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
