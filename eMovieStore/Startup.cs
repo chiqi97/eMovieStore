@@ -2,6 +2,7 @@ using eMovieStore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,14 @@ namespace eMovieStore
         {
             services.AddDbContextPool<AppDbContext>(
  options => options.UseSqlServer(_config.GetConnectionString("EMovieStoreDBConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 5;
+                options.Password.RequiredUniqueChars = 1;
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<AppDbContext>();
+
 
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<IMovieRepository, SQLMovieRepository>();
