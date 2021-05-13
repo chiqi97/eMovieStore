@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eMovieStore.Models
 {
-    public class AppDbContext : DbContext//IdentityDbContext<ApplicationUser> - role uzytkownik itd.
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
     : base(options)
@@ -20,6 +20,7 @@ namespace eMovieStore.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Seed();
         }
         //protected override void OnModelCreating(ModelBuilder modelBuilder)

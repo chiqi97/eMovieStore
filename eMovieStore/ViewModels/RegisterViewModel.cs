@@ -9,6 +9,8 @@ namespace eMovieStore.ViewModels
 {
     public class RegisterViewModel
     {
+        //[Required]
+        //public string UserName { get; set; }
         [Required]
         [EmailAddress]
         [Remote(action: "IsEmailInUse", controller: "Account")]
