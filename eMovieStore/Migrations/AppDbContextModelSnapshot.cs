@@ -230,6 +230,10 @@ namespace eMovieStore.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Genre")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -237,6 +241,9 @@ namespace eMovieStore.Migrations
 
                     b.Property<string>("PhotoPath")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -256,8 +263,10 @@ namespace eMovieStore.Migrations
                         {
                             Id = 1,
                             Author = "Martin Scorsese",
+                            Description = "Szeryf federalny Daniels stara się dowiedzieć, jakim sposobem z zamkniętej celi w pilnie strzeżonym szpitalu dla chorych psychicznie przestępców zniknęła pacjentka.",
                             Genre = "Thriller",
                             PhotoPath = "shutter-island.jpg",
+                            Price = 5.2300000000000004,
                             Title = "Wyspa tajemnic",
                             YearOfProduction = 2010
                         },
@@ -265,8 +274,10 @@ namespace eMovieStore.Migrations
                         {
                             Id = 2,
                             Author = "Frank Darabont",
+                            Description = "Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.",
                             Genre = "Dramat",
                             PhotoPath = "skazani.jpg",
+                            Price = 35.240000000000002,
                             Title = "Skazani na Shawshank",
                             YearOfProduction = 1994
                         });

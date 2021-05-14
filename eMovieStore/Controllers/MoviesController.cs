@@ -1,9 +1,11 @@
 ﻿using eMovieStore.Models;
+using eMovieStore;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMovieStore.ViewModels;
 
 namespace eMovieStore.Controllers
 {
@@ -22,9 +24,20 @@ namespace eMovieStore.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Details (int id,string returnUrl)
+        public ViewResult Details(int id)
         {
-            Movie movie=await context.movies
+            Movie movie = _movieRepository.GetMovie(id);
+            if (movie == null)
+            {
+                return View("NotFound", id);
+            }
+            MovieDetailsViewModel movieViewModel = new MovieDetailsViewModel()
+            {
+                Movie=movie
+            };
+
+            return View(movieViewModel);
+
         }
     }
 }
