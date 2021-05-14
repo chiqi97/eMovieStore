@@ -9,6 +9,8 @@ namespace eMovieStore.ViewModels
 {
     public class LoginViewModel
     {
+        //[Required]
+        //public string UserName { get; set; }
         [Required]
         [EmailAddress]
 

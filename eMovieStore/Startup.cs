@@ -62,6 +62,7 @@ namespace eMovieStore
 
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

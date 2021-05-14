@@ -21,5 +21,10 @@ namespace eMovieStore.Controllers
             var model = _movieRepository.GetAllMovies();
             return View(model);
         }
+
+        public async Task<IActionResult> Details (int id,string returnUrl)
+        {
+            Movie movie=await context.movies
+        }
     }
 }
