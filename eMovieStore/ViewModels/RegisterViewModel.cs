@@ -20,15 +20,22 @@ namespace eMovieStore.ViewModels
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Potwierdź hasło")]
         [Compare("Password",
                 ErrorMessage = "Password and confirmation password dont match.")]
         public string ConfirmPassword { get; set; }
 
         [Required]
-
+        [Display(Name = "Miasto")]
         public string City { get; set; }
+        [Required]
+        [Display(Name = "Imię")]
+        public string Name { get; set; }
+        [Required]
+        [Display(Name = "Nazwisko")]
+        public string LastName { get; set; }
     }
 }

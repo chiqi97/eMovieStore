@@ -11,15 +11,22 @@ namespace eMovieStore.ViewModels
     {
         //[Required]
         //public string UserName { get; set; }
-        [Required]
-        [EmailAddress]
 
         public string Email { get; set; }
         [Required]
+        [Display(Name = "Hasło")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Display(Name = "Remember me")]
+        [Display(Name = "Zapamiętaj mnie")]
+
         public bool RememberMe { get; set; }
+
+  
+        [Display(Name = "Imię")]
+        public string Name { get; set; }
+
+        [Display(Name = "Nazwisko")]
+        public string LastName { get; set; }
 
         public string ReturnUrl { get; set; }
         public IList<AuthenticationScheme> ExternalLogins { get; set; }

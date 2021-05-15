@@ -1,4 +1,5 @@
 using eMovieStore.Models;
+using eMovieStore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +41,7 @@ namespace eMovieStore
 
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<IMovieRepository, SQLMovieRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllersWithViews();
         }
 

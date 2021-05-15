@@ -10,8 +10,8 @@ using eMovieStore.Models;
 namespace eMovieStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210514230638_Init")]
-    partial class Init
+    [Migration("20210515134820_InitMigration")]
+    partial class InitMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -174,11 +174,17 @@ namespace eMovieStore.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -253,7 +259,6 @@ namespace eMovieStore.Migrations
                         .HasColumnType("nvarchar(70)");
 
                     b.Property<int>("YearOfProduction")
-                        .HasMaxLength(4)
                         .HasColumnType("int");
 
                     b.HasKey("Id");

@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h1>User Login</h1>
+        <h1>Dane do logowania</h1>
         <hr />
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -24,17 +24,17 @@
             </div>
             <div class="form-group">
                 <div class="checkbox">
-                    <label asp-for="RememberMe">
+                    <label asp-for="RememberMe"> 
                         <input asp-for="RememberMe" />
                         @Html.DisplayNameFor(m => m.RememberMe)
                     </label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Zaloguj</button>
         </form>
     </div>
     <div class="col-md-6">
-        <h1>External Login</h1>
+        <h1>Zaloguj się przez</h1>
         <hr />
        
 
