@@ -8,14 +8,13 @@
 <a class="btn btn-primary mb-3" style="width:auto" asp-action="Create"
    asp-controller="Movies">Dodaj film</a>
 
-
-<div class="row">
-    <div class="card-deck">
+   <div class="card-deck">
         @foreach (var movie in Model)
         {
-            var photoPath = "~/images/" + (movie.PhotoPath ?? "cover.jpg");
 
-            <div class="card m-3" style="min-width: 18rem; max-width:30.5%;margin:5px;">
+
+            var photoPath = "~/images/" + (movie.PhotoPath ?? "cover.jpg");
+            <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
                 <div class="card-header" style="height:120px;">
                     <h3>@movie.Title</h3>
                     <h5>@movie.Author</h5>
@@ -28,18 +27,39 @@
 
                 <div class="card-footer text-center">
 
-                    <a asp-controller="movies" asp-action="details" asp-route-id="@movie.Id"
+                    <a asp-action="details" asp-route-id="@movie.Id"
                        class="btn btn-primary ">Zobacz</a>
                     <a asp-route-id="@movie.Id"
                        class="btn btn-success m-1">Dodaj do koszyka</a>
+
+
+                    <form asp-controller="Movies" asp-action="delete"
+                          asp-route-id="@movie.Id" method="get">
+                        <span id="confirmDeleteSpan_@movie.Id" style="display:none">
+                            <span>Czy na peweno chcesz usunac?</span>
+                            <br />
+                            <button class="btn btn-danger" type="submit">Tak</button>
+                            <a href="#" class="btn btn-primary"
+                               onclick="confirmDelete('@movie.Id', false)">Nie</a>
+                        </span>
+
+                        <span id="deleteSpan_@movie.Id">
+                            <a class="btn btn-danger"
+                               onclick="confirmDelete('@movie.Id', true)">Usuń</a>
+                        </span>
+                    </form>
+
+
                 </div>
-            </div>      }
+
+
+            </div>}
 
 
     </div>
-</div>
+
 
 
 @section Scripts{
-    <script src="~/js/CustomScript.js"></script>
+    <script src="~/js/DeleteWindowScript.js"></script>
 }

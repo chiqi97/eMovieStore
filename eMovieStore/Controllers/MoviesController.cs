@@ -74,6 +74,13 @@ namespace eMovieStore.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            _movieRepository.Delete(id);
+            return View("deleted");
+        }
+
         private string ProcessUploadedFile(MovieCreateViewModel model)
         {
             string uniqueFileName = null;
@@ -97,6 +104,7 @@ namespace eMovieStore.Controllers
             return uniqueFileName;
 
         }
+
 
 
     }
