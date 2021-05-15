@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eMovieStore.Models
+namespace eMovieStore.ViewModels
 {
-    public class Movie
+    public class MovieCreateViewModel
     {
-        public int Id { get; set; }
         [Required]
         [MaxLength(70)]
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
+
         [Required]
         [MaxLength(30)]
         [Display(Name = "Gatunek")]
@@ -35,7 +35,6 @@ namespace eMovieStore.Models
         //[Column(TypeName = "decimal(6,2)")]
         [Display(Name = "Cena")]
         public double Price { get; set; }
-        public string PhotoPath { get; set; }
-
+        public IFormFile Photo { get; set; }
     }
 }
