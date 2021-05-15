@@ -29,12 +29,13 @@ namespace eMovieStore.Controllers
             return View(model);
         }
 
-        public ViewResult Details(int id)
+        public ViewResult Details(int? id)
         {
-            Movie movie = _movieRepository.GetMovie(id);
+            Movie movie = _movieRepository.GetMovie(id.Value);
             if (movie == null)
             {
-                return View("NotFound", id);
+                Response.StatusCode = 404;
+                return View("MovieNotFound", id.Value);
             }
             MovieDetailsViewModel movieViewModel = new MovieDetailsViewModel()
             {

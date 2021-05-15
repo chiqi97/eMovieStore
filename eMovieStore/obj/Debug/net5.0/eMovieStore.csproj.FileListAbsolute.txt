@@ -82,3 +82,4 @@ C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Movies\Create.cshtml.g.cs
+C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Movies\MovieNotFound.cshtml.g.cs

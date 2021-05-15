@@ -20,7 +20,7 @@ namespace eMovieStore.ViewModels
         public string Genre { get; set; }
         [Required]
         [MaxLength(30)]
-        [Display(Name = "Autor")]
+        [Display(Name = "Reżyser")]
         public string Author { get; set; }
         [Required]
         [Display(Name = "Opis filmu")]
@@ -30,9 +30,6 @@ namespace eMovieStore.ViewModels
         public int YearOfProduction { get; set; }
 
         [Required(ErrorMessage = "Pole jest obowiązkowe")]
-        //Check if wrote number is correct for price
-        //[RegularExpression("(\\d+\\.\\d{2})", ErrorMessage = "Podaj poprawną cenę")]
-        //[Column(TypeName = "decimal(6,2)")]
         [Display(Name = "Cena")]
         public double Price { get; set; }
         public IFormFile Photo { get; set; }

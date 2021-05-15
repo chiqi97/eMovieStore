@@ -13,7 +13,7 @@ namespace eMovieStore.ViewModels
         //public string UserName { get; set; }
         [Required]
         [EmailAddress]
-        [Remote(action: "IsEmailInUse", controller: "Account")]
+
         //[ValidEmailDomain (allowedDomain: "o2.pl", 
         //    ErrorMessage ="email domain must be o2.pl")] // dozwolone maile tylko 02 utitlities
         // allow domain wysylany do validemailDomain
