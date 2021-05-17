@@ -40,6 +40,11 @@ namespace eMovieStore
 
 
             services.AddMvc().AddXmlSerializerFormatters();
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "247010248490-fajvbvkvh99cr8llr0uolfl7k70jbluc.apps.googleusercontent.com";
+                options.ClientSecret = "1e2IT9eaZI1WEdGeOd4xH-97";
+            });
             services.AddScoped<IMovieRepository, SQLMovieRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddControllersWithViews();
