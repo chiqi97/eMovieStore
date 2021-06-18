@@ -29,9 +29,9 @@ namespace eMovieStore.Models
         [Display(Name = "Rok Produkcji")]
         public int YearOfProduction { get; set; }
 
-        [Required(ErrorMessage = "Pole jest obowiązkowe")]
+        //[Required(ErrorMessage = "Pole jest obowiązkowe")]
+        //[DisplayFormat(DataFormatString = @"{0:0\,00}", ApplyFormatInEditMode = true)]
         //Check if wrote number is correct for price
-        //[RegularExpression("(\\d+\\.\\d{2})", ErrorMessage = "Podaj poprawną cenę")]
         //[Column(TypeName = "decimal(6,2)")]
         [Display(Name = "Cena")]
         public double Price { get; set; }

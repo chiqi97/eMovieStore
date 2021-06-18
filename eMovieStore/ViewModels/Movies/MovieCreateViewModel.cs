@@ -30,8 +30,10 @@ namespace eMovieStore.ViewModels
         public int YearOfProduction { get; set; }
 
         [Required(ErrorMessage = "Pole jest obowiązkowe")]
+        
         [Display(Name = "Cena")]
         public double Price { get; set; }
+        [Display(Name = "Zdjęcie")]
         public IFormFile Photo { get; set; }
     }
 }
