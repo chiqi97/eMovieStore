@@ -10,7 +10,6 @@ C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\ref\eMovieSt
 C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\eMovieStore.pdb
 C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\eMovieStore.Views.dll
 C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\eMovieStore.Views.pdb
-C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.csprojAssemblyReference.cache
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.AssemblyInfoInputs.cache
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.AssemblyInfo.cs
@@ -87,3 +86,4 @@ C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Movies\Deleted.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\Account\LoggedOut.cshtml.g.cs
 C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.csproj.AssemblyReference.cache
