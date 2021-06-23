@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace eMovieStore.Models
 {
-    public class SQLMovieRepository : IMovieRepository
+    public class MovieRepository : IMovieRepository
     {
         private readonly AppDbContext context;
 
-        public SQLMovieRepository(AppDbContext context)
+        public MovieRepository(AppDbContext context)
         {
             this.context = context;
         }
@@ -34,6 +34,15 @@ namespace eMovieStore.Models
         public IEnumerable<Movie> GetAllMovies()
         {
             return context.Movies;
+        }
+
+        public IEnumerable<Movie> GetMoviesByGenre(string genre)
+        {
+            if (genre == "All")
+            {
+                return context.Movies;
+            }
+            return context.Movies.Where(x=>x.Genre==genre);
         }
 
         public Movie GetMovie(int id)

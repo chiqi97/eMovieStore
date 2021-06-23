@@ -23,12 +23,17 @@ namespace eMovieStore.Controllers
             _hostingEnvironment = hostingEnviroment;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string movieGenre)
         {
-            var model = _movieRepository.GetAllMovies();
+            var model = _movieRepository.GetMoviesByGenre(movieGenre);
             return View(model);
         }
 
+
+
+
+        [HttpGet]
         public ViewResult Details(int? id)
         {
             Movie movie = _movieRepository.GetMovie(id.Value);
