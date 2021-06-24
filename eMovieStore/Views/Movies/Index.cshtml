@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Movie>
+﻿@model MovieGroupViewModel
 
 @{ ViewData["Title"] = "Oferta"; }
 
@@ -18,70 +18,101 @@
 <div class="col-md-3">
     <ul class="list-group">
         <li class="list-group-item">
-            <a class="nav-link text-dark"   asp-controller="Movies" asp-action="Index" asp-route-movieGenre="All">wszystkie</a>
+            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index" asp-route-movieGenre="All">wszystkie</a>
         </li>
 
 
         <li class="list-group-item">
-            <a class="nav-link text-dark"  asp-controller="Movies" asp-action="Index" asp-route-movieGenre="Dramat">Dramat</a>
-            
+            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index" asp-route-movieGenre="Dramat">Dramat</a>
+
         </li>
     </ul>
+</div>
+
+<div class="card-deck">
+    @foreach (var movie in Model.Movies)
+    {
+
+
+        var photoPath = "~/images/" + (movie.PhotoPath ?? "cover.jpg");
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header" style="height:120px;">
+                <h3>@movie.Title</h3>
+                <h5>@movie.Author</h5>
+                <p>Cena:@movie.Price</p>
+            </div>
+            <div align="center">
+                <img class="card-img-top imageThumbnail" style="max-width:250px;max-height:350px;" src="@photoPath"
+                     asp-append-version="true" />
+            </div>
+
+
+            <div class="card-footer text-center">
+
+                <a asp-action="details" asp-route-id="@movie.Id"
+                   class="btn btn-primary ">Zobacz</a>
+                <a asp-route-id="@movie.Id"
+                   class="btn btn-success m-1">Dodaj do koszyka</a>
+
+
+                <form asp-controller="Movies" asp-action="delete"
+                      asp-route-id="@movie.Id" method="get">
+                    <span id="confirmDeleteSpan_@movie.Id" style="display:none">
+                        <span>Czy na peweno chcesz usunac?</span>
+                        <br />
+                        <button class="btn btn-danger" type="submit">Tak</button>
+                        <a href="#" class="btn btn-primary"
+                           onclick="confirmDelete('@movie.Id', false)">Nie</a>
+                    </span>
+
+                    <span id="deleteSpan_@movie.Id">
+                        <a class="btn btn-danger"
+                           onclick="confirmDelete('@movie.Id', true)">Usuń</a>
+                    </span>
+                </form>
+
+
+            </div>
+
+
+        </div>}
+
+    <div class="d-flex w-100 justify-content-center">
+        <pagination page-count="@Model.TotalPages" page-target="/movies?movieGenre=@Model.Genre" page-number="@Model.PageNumber" page-range="@Model.PageRange"></pagination>
     </div>
+</div>
 
-    <div class="card-deck">
-        @foreach (var movie in Model)
-        {
+@section Scripts
+{
+    <script src="~/js/DeleteWindowScript.js"></script>
+    <script>
+        $(function () {
 
+            $("a.addToCart").click(function (e) {
+                e.preventDefault();
 
-            var photoPath = "~/images/" + (movie.PhotoPath ?? "cover.jpg");
-            <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
-                <div class="card-header" style="height:120px;">
-                    <h3>@movie.Title</h3>
-                    <h5>@movie.Author</h5>
-                    <p>Cena:@movie.Price</p>
-                </div>
-                <div align="center">
-                    <img class="card-img-top imageThumbnail" style="max-width:250px;max-height:350px;" src="@photoPath"
-                         asp-append-version="true" />
-                </div>
+                let ajaxDiv = $(this).parent().parent().find("div.ajaxbg");
+                ajaxDiv.removeClass("d-none");
+                let id = $(this).data("id");
 
-
-                <div class="card-footer text-center">
-
-                    <a asp-action="details" asp-route-id="@movie.Id"
-                       class="btn btn-primary ">Zobacz</a>
-                    <a asp-route-id="@movie.Id"
-                       class="btn btn-success m-1">Dodaj do koszyka</a>
-
-
-                    <form asp-controller="Movies" asp-action="delete"
-                          asp-route-id="@movie.Id" method="get">
-                        <span id="confirmDeleteSpan_@movie.Id" style="display:none">
-                            <span>Czy na peweno chcesz usunac?</span>
-                            <br />
-                            <button class="btn btn-danger" type="submit">Tak</button>
-                            <a href="#" class="btn btn-primary"
-                               onclick="confirmDelete('@movie.Id', false)">Nie</a>
-                        </span>
-
-                        <span id="deleteSpan_@movie.Id">
-                            <a class="btn btn-danger"
-                               onclick="confirmDelete('@movie.Id', true)">Usuń</a>
-                        </span>
-                    </form>
+                $.get('/cart/add/' + id,
+                    {},
+                    function (data) {
+                        $("div.smallcart").html(data);
+                        ajaxDiv.find("img").addClass("d-none");
+                        ajaxDiv.find("p").removeClass("d-none");
+                        setTimeout(() => {
+                            ajaxDiv.animate({ opacity: 0 },
+                                function () {
+                                    $(this).addClass("d-none").fadeTo(.1, 1);
+                                    $(this).find("img").removeClass("d-none");
+                                    $(this).find("p").addClass("d-none");
+                                });
+                        });
+                    });
+            });
+        });
+    </script>
+}
 
 
-                </div>
-
-
-            </div>}
-
-
-    </div>
-
-
-
-    @section Scripts{
-        <script src="~/js/DeleteWindowScript.js"></script>
-    }

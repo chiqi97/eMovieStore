@@ -88,3 +88,4 @@ C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\
 C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\eMovieStore.csproj.AssemblyReference.cache
 C:\Users\User\source\repos\eMovieStore\eMovieStore\obj\Debug\net5.0\Razor\Views\ShoppingCart\Index.cshtml.g.cs
+C:\Users\User\source\repos\eMovieStore\eMovieStore\bin\Debug\net5.0\AutoMapper.dll

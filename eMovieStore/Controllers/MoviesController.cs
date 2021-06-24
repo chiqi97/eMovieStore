@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using eMovieStore.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using eMovieStore.Models.MovieRelated;
 
 namespace eMovieStore.Controllers
 {
@@ -15,26 +16,40 @@ namespace eMovieStore.Controllers
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IMovieRepository _movieRepository;
+        private readonly AppDbContext _context;
 
         public MoviesController(IMovieRepository movieRepository,
-             IWebHostEnvironment hostingEnviroment)
+             IWebHostEnvironment hostingEnviroment,
+             AppDbContext context)
         {
             _movieRepository = movieRepository;
             _hostingEnvironment = hostingEnviroment;
+            _context = context;
         }
 
         [HttpGet]
-        public IActionResult Index(string searchTitle, string movieGenre="All")
+        public async Task<IActionResult> Index(string searchTitle, int p=1,string movieGenre="All")
         {
+            int pageSize = 6;
 
             if (searchTitle != null &&
                 searchTitle != "")
             {
-                var model = _movieRepository.GetMoviesByName(searchTitle);
-                return View(model);
+                var movies = _movieRepository.GetMoviesByName(searchTitle).OrderByDescending(x=>x.Id)
+                     .Skip((p - 1) * pageSize).Take(pageSize);
+                return View(movies);
             }
-            var model1 = _movieRepository.GetMoviesByGenre(movieGenre);
-            return View(model1);
+            var movies1 = _movieRepository.GetMoviesByGenre(movieGenre)
+                .Skip((p - 1) * pageSize).Take(pageSize);
+
+            MovieGroupViewModel moviesGroupVM = new MovieGroupViewModel(movies1.ToList(),
+                p,
+                pageSize,   
+                (int)Math.Ceiling((decimal)_movieRepository.GetMoviesByGenre(movieGenre).Count() / pageSize),
+                movieGenre
+                );
+
+            return View(moviesGroupVM);
         }
 
 
