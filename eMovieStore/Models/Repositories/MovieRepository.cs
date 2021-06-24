@@ -44,6 +44,10 @@ namespace eMovieStore.Models
             }
             return context.Movies.Where(x=>x.Genre==genre);
         }
+        public IEnumerable<Movie> GetMoviesByName(string name)
+        {
+            return context.Movies.Where(x=>x.Title.Contains(name));
+        }
 
         public Movie GetMovie(int id)
         {

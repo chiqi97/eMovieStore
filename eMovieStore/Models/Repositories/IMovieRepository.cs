@@ -13,5 +13,6 @@ namespace eMovieStore.Models
         Movie Update(Movie bookChanges);
         Movie Delete(int id);
         IEnumerable<Movie> GetMoviesByGenre(string genre);
+        IEnumerable<Movie> GetMoviesByName(string name);
     }
 }

@@ -24,11 +24,19 @@ namespace eMovieStore.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string movieGenre)
+        public IActionResult Index(string searchTitle, string movieGenre="All")
         {
-            var model = _movieRepository.GetMoviesByGenre(movieGenre);
-            return View(model);
+
+            if (searchTitle != null &&
+                searchTitle != "")
+            {
+                var model = _movieRepository.GetMoviesByName(searchTitle);
+                return View(model);
+            }
+            var model1 = _movieRepository.GetMoviesByGenre(movieGenre);
+            return View(model1);
         }
+
 
 
 
